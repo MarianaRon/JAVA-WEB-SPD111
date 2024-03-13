@@ -1,18 +1,17 @@
 
-<%@ page import="step.learning.dal.dto.CartItem" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="step.learning.dal.dto.ActionItem" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String context = request.getContextPath() ;
     // Вилучаємо дані, передані сервлетом (контролером)
-    CartItem[] cartItems = (CartItem[]) request.getAttribute("cart");
+    ActionItem[] actionItems = (ActionItem[]) request.getAttribute("action");
 %>
-<h1>Ваш кошик</h1>
 <%-- Відображаємо дані --%>
-<% for(CartItem item : cartItems) { %>
+<% for(ActionItem item : actionItems) { %>
 <div class="col s12 m7">
     <div class="card horizontal">
         <div class="card-image flex1">
-            <img src="<%=context%>/img/no-image.png" alt="img" />
+            <img src="<%=context%>/img/download.png" alt="img" />
         </div>
         <div class="card-stacked flex3">
             <div class="card-content">
@@ -20,7 +19,7 @@
                 <p><%= item.getCount() %></p>
             </div>
             <div class="card-action">
-                <a href="#">видалити з кошику</a>
+                <a href="#">Акція</a>
             </div>
         </div>
     </div>

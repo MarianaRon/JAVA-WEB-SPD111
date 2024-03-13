@@ -1,6 +1,10 @@
-.flex1{
+.flex1 {
     flex: 1 !important;
 }
 .flex3 {
     flex: 3 !important;
+}
+.mysize{
+    font-size: 35px;
+    color: red;
 }

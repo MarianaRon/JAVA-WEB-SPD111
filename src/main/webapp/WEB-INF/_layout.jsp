@@ -1,45 +1,47 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Mariana
-  Date: 09.03.2024
-  Time: 14:39
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <%
     String pageBody = (String) request.getAttribute("page-body");
-    if(pageBody == null) {
-        pageBody = "home";
+    if( pageBody == null ) {
+        pageBody = "home" ;
     }
-    String bodyFile = "/WEB-INF/" + pageBody + ".jsp";
-    String context = request.getContextPath();
+    String bodyFile = "/WEB-INF/" + pageBody + ".jsp" ;
+//ДОСТУП ЗРОБЛЕНИЙ В РУЧНУ
+    String context = request.getContextPath() ;
 %>
 <html>
+
 <head>
     <title>Title</title>
-
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="<%=context%>/css/site.css">
+    <link rel="stylesheet" href="<%=context%>/css/site.css" />
 </head>
+
 <body>
+
 <header>
-<nav>
-    <div class="nav-wrapper blue">
-        <a href="#" class="blue">Logo</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="<%=context%>/cart"><i class="material-icons prefix">shopping_cart</i></a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
-        </ul>
-    </div>
- </nav>
-    </header>
-<main>
-    <jsp:include page = "<%= bodyFile %>"/>
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="<%=context%>/" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="<%=context%>/cart"><i class="material-icons prefix">shopping_cart</i></a></li>
+                <li><a class="btn-floating btn-large red pulse" href="<%=context%>/action"> <i class="Large material-icons">format_shapes</i></a></li>
+<%--                <img src="<%=context%>/img/action.png" alt="img" />--%>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <jsp:include page="<%= bodyFile %>"/>
 </main>
+
 <footer class="page-footer blue">
     <div class="container">
         <div class="row">
@@ -66,11 +68,8 @@
     </div>
 </footer>
 
-
-
-
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="<%=context%>/js/site.js"></script>
+<script src="<%=context%>/js/site.js"></script>
 </body>
 </html>
