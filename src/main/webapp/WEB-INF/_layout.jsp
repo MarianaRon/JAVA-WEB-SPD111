@@ -28,11 +28,11 @@
     <nav>
         <div class="nav-wrapper blue">
             <a href="<%=context%>/" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right">
                 <li><a href="<%=context%>/cart"><i class="material-icons prefix">shopping_cart</i></a></li>
-                <li><a class="btn-floating btn-large red pulse" href="<%=context%>/action"> <i class="Large material-icons">format_shapes</i></a></li>
-<%--                <img src="<%=context%>/img/action.png" alt="img" />--%>
-                <li><a href="collapsible.html">JavaScript</a></li>
+                <li><a class="btn-floating btn-large red pulse" href="<%=context%>/action"> <i class="material-icons">percent</i></a></li>
+                <li><a href="<%=context%>/signup"><i class="material-icons">person_add</i></a></li>
+
             </ul>
         </div>
     </nav>

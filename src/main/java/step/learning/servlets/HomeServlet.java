@@ -1,17 +1,34 @@
 package step.learning.servlets;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import step.learning.services.db.DBService;
+import step.learning.services.hash.HashService;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+//import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 //ЩОБ КЛАС СТАВ SERVLETOM МИ ЙОМУ ПОВИННІ ДАТИ АНОТАЦІЮ @WebServlet("")
 //ДЕ ("") - ДОМАШНІЙ СЕРВЛЕ (ЙОГО АДРЕССА ПОРОЖНЯ)
-@WebServlet("")
+@Singleton
 public class HomeServlet extends HttpServlet {
+
+    private final HashService hashService;
+    private final DBService dbService;
+@Inject
+    public HomeServlet(HashService hashService, DBService dbService) {
+        this.hashService = hashService;
+        this.dbService = dbService;
+}
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("hash", hashService.digest("123"));
+        req.setAttribute("db", dbService.getConnection() == null ? "Error" : "Success");
+
         // додаємо до атрибутів запиту додатковий - щодо тіла у шаблоні
         req.setAttribute( "page-body", "home" ) ;
 
