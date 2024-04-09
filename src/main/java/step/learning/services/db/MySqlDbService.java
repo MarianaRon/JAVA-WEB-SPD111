@@ -13,13 +13,14 @@ public class MySqlDbService  implements  DBService {
     @Override
     public Connection getConnection() {
         if (connection == null) {
-            //
+            // перше звернення - підключаємось
             //
             String connectionString = "jdbc:mysql://localhost:3307/java_spd_111"+
                     "?useUnicode=true&characterEncoding=UTF-8";
             String dbUser = "spd_111";
             String dbPassword = "pass_111";
             try {
+                // запитуємо драйвер
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 connection = DriverManager.getConnection(
                         connectionString, dbUser, dbPassword
